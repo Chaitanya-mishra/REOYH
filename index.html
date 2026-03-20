@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REOYH - Rapid Educator On Your Home</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+
+            <div class="logo">
+                <img src="assets/logo.png" alt="logo">
+                <span>REOYH</span>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="findTutor.html">Find Tutors</a></li>
+                <li><a href="become-tutor.html">Become a Tutor</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+
+            <div class="nav-buttons">
+
+                <a href="login.html" class="login-btn">
+                    <i class="fa-regular fa-user"></i> Login
+                </a>
+
+                <a href="signup.html" class="cta-btn">
+                    Get Started
+                </a>
+
+            </div>
+
+            <div class="menu-toggle" id="menu-toggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+        <div class="hero-container">
+
+            <p class="hero-badge">Find a Verified Tutor in 60 Seconds</p>
+
+            <h1>
+                Find Verified Tutors Near You <br>
+                for Home & Online Learning
+            </h1>
+
+            <p class="hero-sub">
+                Connect with trusted tutors for school subjects and competitive exams.
+            </p>
+
+            <!-- SEARCH CARD -->
+            <div class="search-card">
+
+                <div class="search-grid">
+
+                    <input type="text" placeholder="Enter city..." id="city">
+                    <input type="text" placeholder="Enter area..." id="area">
+
+                    <select title="subject">
+                        <option disabled selected>Select subject </option>
+                        <option value="Math">Math</option>
+                        <option value="Physics">Physics</option>
+                        <option value="Chemistry">Chemistry</option>
+                        <option value="English">English</option>
+                        <option value="Biology">Biology</option>
+                    </select>
+
+                    <select title="class">
+                        <option disabled selected>Class</option>
+                        <option value="Class 10">Class 10</option>
+                        <option value="Class 12">Class 12</option>
+                        <option value="College">College</option>
+                    </select>
+
+                    <select title="Board">
+                        <option disabled selected>Board/Exam</option>
+                        <option value="CBSE">CBSE</option>
+                        <option value="ICSE">ICSE</option>
+                        <option value="JEE">JEE</option>
+                        <option value="NEET">NEET</option>
+                        <option value="CUET">CUET</option>
+                        <option value="SAT">SAT</option>
+                    </select>
+
+                    <select title="Mode">
+                        <option disabled selected>Mode</option>
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                        <option value="Hybrid">Hybrid</option>
+                    </select>
+
+                </div>
+
+                <button class="search-btn" id="search-btn">Find Tutors</button>
+
+                <p class="trust-line">
+                    Learn Faster • Learn Smarter • From Home
+                </p>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- BANNERS -->
+    <section class="banner">
+
+        <img src="assets/banner.png" alt="">
+
+    </section>
+
+    <!-- AI MATCH SECTION -->
+    <section class="ai-match">
+
+        <p class="ai-badge">Powered by AI</p>
+
+        <h2>AI Tutor Match</h2>
+
+        <p class="ai-sub">
+            Not sure which tutor is best for you?
+        </p>
+
+        <p class="ai-desc">
+            Answer a few quick questions and REOYH will recommend the best tutors
+            based on subject, class, learning style and budget.
+        </p>
+
+        <div class="ai-features">
+
+            <div class="ai-card">
+                <h3>Faster Selection</h3>
+                <p>Find the perfect tutor in minutes</p>
+            </div>
+
+            <div class="ai-card">
+                <h3>Better Match</h3>
+                <p>AI powered personalized recommendations</p>
+            </div>
+
+            <div class="ai-card">
+                <h3>Higher Satisfaction</h3>
+                <p>Get matched with the right tutor</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how">
+
+        <h2>How REOYH Works?</h2>
+
+        <p>Find and book verified tutors in just a few steps</p>
+
+        <div class="steps">
+
+            <div class="step">
+                <div class="num">1</div>
+                <h4>Search Tutors</h4>
+                <p>Browse tutors by subject, location and ratings</p>
+            </div>
+
+            <div class="step">
+                <div class="num">2</div>
+                <h4>Compare Profiles</h4>
+                <p>Check experience, qualifications and reviews</p>
+            </div>
+
+            <div class="step">
+                <div class="num">3</div>
+                <h4>Book a Session</h4>
+                <p>Select date and confirm booking</p>
+            </div>
+
+            <div class="step">
+                <div class="num">4</div>
+                <h4>Start Learning</h4>
+                <p>Connect and begin your learning journey</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- FEATURED TUTORS -->
+    <section class="featured">
+
+        <h2>Featured Tutors</h2>
+
+        <p>Meet some of our top rated tutors</p>
+
+        <div class="tutor-grid">
+
+            <div class="tutor-card">
+                <img src="assets/placeholder.jpg" alt="">
+                <h3>Dr. Priya Sharma</h3>
+                <p>PhD Mathematics • IIT Delhi</p>
+                <p>Dwarka, Delhi</p>
+                <p>Starting from ₹800/hour</p>
+                <a class="tutor-profile" href="tutor_profile.html?id=1">View Profile</a>
+            </div>
+
+            <div class="tutor-card">
+                <img src="assets/placeholder.jpg" alt>
+                <h3>Rahul Kumar</h3>
+                <p>MSc Chemistry • DU</p>
+                <p>Rohini, Delhi</p>
+                <p>Starting from ₹600/hour</p>
+                <a class="tutor-profile" href="tutor_profile.html?id=2">View Profile</a>
+            </div>
+
+            <div class="tutor-card">
+                <img src="assets/placeholder.jpg" alt="">
+                <h3>Anjali Verma</h3>
+                <p>MA English • JNU</p>
+                <p>Janakpuri, Delhi</p>
+                <p>Starting from ₹500/hour</p>
+                <a class="tutor-profile" href="tutor_profile.html?id=3">View Profile</a>
+            </div>
+
+        </div>
+
+        <button class="view-all">View All Tutors</button>
+
+    </section>
+
+    <!-- TRUST -->
+    <section class="trust">
+
+        <h2>Trusted by Students and Parents Across India</h2>
+
+        <p>
+            All our tutors undergo strict background verification including education credentials,
+            identity verification and professional conduct assessment.
+        </p>
+
+        <button class="verify-btn">Background Verified Tutors</button>
+
+    </section>
+
+    <!-- WHY CHOOSE -->
+    <section class="why">
+
+        <h2>Why Choose REOYH?</h2>
+
+        <div class="why-grid">
+
+            <div>
+                <h4>Verified Tutors</h4>
+                <p>Strict education and identity verification</p>
+            </div>
+
+            <div>
+                <h4>Trusted Reviews</h4>
+                <p>Real ratings from parents and students</p>
+            </div>
+
+            <div>
+                <h4>Flexible Scheduling</h4>
+                <p>Book sessions according to your schedule</p>
+            </div>
+
+            <div>
+                <h4>Multiple Modes</h4>
+                <p>Home, online or hybrid classes</p>
+            </div>
+
+            <div>
+                <h4>Experienced Tutors</h4>
+                <p>Proven teaching track records</p>
+            </div>
+
+            <div>
+                <h4>Secure Payments</h4>
+                <p>Safe payment gateway integration</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- POPULAR SUBJECTS -->
+    <section class="subjects">
+
+        <h2>Popular Subjects</h2>
+
+        <div class="subject-grid">
+
+            <div>Math Tutor</div>
+            <div>Physics Tutor</div>
+            <div>Chemistry Tutor</div>
+            <div>English Tutor</div>
+            <div>Biology Tutor</div>
+
+        </div>
+
+    </section>
+
+    <!-- TUTOR CTA -->
+    <section class="tutor-cta">
+
+        <h2>Are You a Tutor?</h2>
+
+        <p>
+            Join REOYH and connect with students looking for quality education.
+        </p>
+
+        <a href="become-tutor.html"><button class="cta-btn">Become a Tutor</button></a>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <a href="index.html"></a>
+            <div class="footer-column">
+                <h3>REOYH</h3>
+                <p>Rapid</p>
+                <p>Educator</p>
+                <p>On Your</p>
+                <p>Home</p>
+            </div>
+            </a>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="findTutor.html">
+                    <p>Find Tutors</p>
+                </a>
+                <a href="become-tutor.html">
+                    <p>Become a Tutor</p>
+                </a>
+                <a href="contact.html">
+                    <p>Contact</p>
+                </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Legal</h3>
+                <p>Privacy Policy</p>
+                <p>Terms</p>
+                <p>Refund Policy</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <p>reoyhoutreach@gmail.com</p>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Social</h3>
+                <a href="https://www.facebook.com/share/1ApMHnuUCr/" target="_blank">Facebook</a>
+                <a href="https://share.google/2yqd0seR6Gp9CWpSI" target="_blank">Google</a>
+                <a href="https://www.instagram.com/reoyhofficial_?igsh=ZmdpNTdqM3o5N2xw" target="_blank">Instagram</a>
+                <a href="https://www.linkedin.com/company/reoyh-%E2%80%93-rapid-educator-on-your-home/"
+                    target="_blank">LinkedIn</a>
+                <a href="https://youtube.com/@reyohofficial?si=OhYTcIe8eA0-8XCO">YouTube</a>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 REOYH. All rights reserved.
+        </p>
+
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

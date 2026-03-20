@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reoyh - Team</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+
+    <style>
+        /* FOUNDERS SECTION */
+
+        .founders-section {
+            padding: 80px 20px;
+            background: #F8FAFC;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: "Poppins";
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .founders-intro {
+            max-width: 800px;
+            margin: 0 auto 50px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+
+        /* GRID */
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+
+        /* CARD */
+
+        .founder-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: left;
+            transition: 0.3s;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-6px);
+        }
+
+
+        /* QUOTE ICON */
+
+        .quote-icon {
+            font-size: 28px;
+            color: #F97316;
+            margin-bottom: 10px;
+        }
+
+
+        /* TEXT */
+
+        .founder-quote {
+            font-style: italic;
+            color: #374151;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .founder-card h3 {
+            color: #0B1F4D;
+            margin-bottom: 4px;
+        }
+
+        .founder-role {
+            font-size: 14px;
+            color: #F97316;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+
+        /* RESPONSIBILITIES */
+
+        .founder-responsibilities {
+            padding-left: 18px;
+            color: #475569;
+        }
+
+        .founder-responsibilities li {
+            margin-bottom: 6px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px) {
+
+            .founders-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width:600px) {
+
+            .founders-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <section class="founders-section">
+
+        <h2 class="section-title">Meet the Founders of REOYH</h2>
+
+        <p class="founders-intro">
+            REOYH (Rapid Educator On Your Home) is built by a team of Computer Science
+            Engineering students passionate about improving how students connect with
+            trusted tutors. Our goal is to simplify tutor discovery and make quality
+            learning accessible for every student.
+        </p>
+
+
+        <div class="founders-grid">
+
+            <!-- Founder 1 -->
+
+            <div class="founder-card">
+
+                <div class="quote-icon">❝</div>
+
+                <p class="founder-quote">
+                    Education becomes powerful when the right guidance reaches the right student.
+                    At REOYH we aim to make tutor discovery simple, transparent, and accessible.
+                </p>
+
+                <h3>Abhay Jha</h3>
+
+                <span class="founder-role">CEO & Co-Founder</span>
+
+                <ul class="founder-responsibilities">
+                    <li>Product vision</li>
+                    <li>Platform strategy</li>
+                    <li>Startup development</li>
+                    <li>Tutor-student ecosystem</li>
+                </ul>
+
+            </div>
+
+
+
+            <!-- Founder 2 -->
+
+            <div class="founder-card">
+
+                <div class="quote-icon">❝</div>
+
+                <p class="founder-quote">
+                    Technology should simplify learning, not complicate it.
+                    At REOYH my focus is building a reliable platform that connects students
+                    with tutors seamlessly.
+                </p>
+
+                <h3>Umair Ahmad</h3>
+
+                <span class="founder-role">CTO & Co-Founder</span>
+
+                <ul class="founder-responsibilities">
+                    <li>Platform architecture</li>
+                    <li>Backend systems</li>
+                    <li>Website performance</li>
+                    <li>Technology development</li>
+                </ul>
+
+            </div>
+
+
+
+            <!-- Founder 3 -->
+
+            <div class="founder-card">
+
+                <div class="quote-icon">❝</div>
+
+                <p class="founder-quote">
+                    Great ideas grow when people know about them.
+                    My role is helping students and tutors discover REOYH and
+                    build a strong learning community.
+                </p>
+
+                <h3>Raihan Khan</h3>
+
+                <span class="founder-role">CMO & Founder</span>
+
+                <ul class="founder-responsibilities">
+                    <li>Brand development</li>
+                    <li>Digital marketing</li>
+                    <li>Tutor onboarding</li>
+                    <li>Platform growth</li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+</body>
+
+</html>

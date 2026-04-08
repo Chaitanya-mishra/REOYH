@@ -1,4 +1,4 @@
-<img width="944" height="680" alt="image" src="https://github.com/user-attachments/assets/f80128c2-b6b5-480d-8fb3-7b920ce9ee1a" />REOYH – Student Tutor Discovery Platform
+REOYH – Student Tutor Discovery Platform
 Overview
 
 REOYH is a frontend-based web platform designed to connect students with tutors and educational opportunities through a clean, structured, and user-friendly interface.
@@ -115,22 +115,38 @@ Transition planning from frontend to full stack
 Screenshots
 ## Screenshots
 
+<img width="250" height="250" alt="image" src="https://github.com/user-attachments/assets/f80128c2-b6b5-480d-8fb3-7b920ce9ee1a" />
+
  assets/DEmo (1).png
+ 
  assets/DEmo (2).png
+ 
  assets/DEmo (3).png
+ 
  assets/DEmo (4).png
+ 
  assets/DEmo (5).png
+
  
  
 How to Run Locally
+
+
 Clone the repository
+
 git clone https://github.com/your-username/REOYH.git
+
 Open the folder in VS Code
+
 Run using Live Server or open index.html in browser
+
+
 Author
 
 Chaitanya Mishra
+
 Diploma in Computer Engineering (DCOE)
+
 Frontend Developer | Tech Enthusiast
 
 Note

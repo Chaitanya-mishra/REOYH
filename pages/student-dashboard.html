@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - REOYH</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+</head>
+
+<body>
+
+    <section class="dashboard">
+
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <h2>Welcome, <span id="username"></span> 👋</h2>
+
+            <div class="actions">
+                <a href="findTutor.html" class="cta-btn" id="findTutorBtn">Find Tutors</a>
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <!-- GRID -->
+        <div class="dashboard-grid">
+
+            <!-- LEFT -->
+            <div class="card">
+                <h3>Your Sessions</h3>
+                <div id="bookingList">
+                    <p class="muted">No sessions booked yet.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="card">
+                <h3>Your Profile</h3>
+
+                <p><strong>Name:</strong> <span id="profileName"></span></p>
+                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
+                <p><strong>Role:</strong> Student</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="module" src="../js/script.js"></script>
+
+</body>
+
+</html>

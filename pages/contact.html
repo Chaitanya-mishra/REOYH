@@ -12,8 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 
 </head>
 
@@ -25,8 +25,8 @@
         <div class="container nav-container">
 
             <div class="logo">
-                <img src="assets/logo.png">
-                <span>REOYH</span>
+                <img src="../assets/logo.png">
+                <span>EOYH</span>
             </div>
 
             <ul class="nav-links">
@@ -65,7 +65,7 @@
 
                 <h3>Get in Touch</h3>
 
-                <p>Email: support@reoyh.com</p>
+                <p>Email: reoyhoutreach@gmail.com</p>
 
                 <p>Phone: +91 98765 43210</p>
 
@@ -78,17 +78,19 @@
 
             <div class="contact-form">
 
-                <form>
+                <form id="contactForm">
 
-                    <input type="text" placeholder="Your Name" required>
+                    <input id="contactName" type="text" placeholder="Your Name" required>
 
-                    <input type="email" placeholder="Email Address" required>
+                    <input id="contactEmail" type="email" placeholder="Email Address" required>
 
-                    <input type="text" placeholder="Subject">
+                    <input id="contactSubject" type="text" placeholder="Subject">
 
-                    <textarea placeholder="Your Message"></textarea>
+                    <textarea id="contactMessage" placeholder="Your Message" required></textarea>
 
-                    <button class="cta-btn">Send Message</button>
+                    <button type="submit" class="cta-btn">Send Message</button>
+
+                    <p id="contactMsg"></p>
 
                 </form>
 
@@ -133,6 +135,7 @@
 
     </footer>
 
+    <script type="module" src="../js/script.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Dashboard - REOYH</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+
+    <section class="dashboard">
+
+        <!-- HEADER -->
+        <div class="dashboard-header">
+            <h2>Welcome, <span id="username"></span><i class="fa-sharp-duotone fa-light fa-chalkboard-user"></i></h2>
+
+            <div class="actions">
+                <button id="logoutBtn" class="logout-btn">Logout</button>
+            </div>
+        </div>
+
+        <!-- GRID -->
+        <div class="dashboard-grid">
+
+            <!-- LEFT: REQUESTS -->
+            <div class="card">
+                <h3>Booking Requests</h3>
+
+                <div id="requestList">
+                    <p class="muted">No requests yet.</p>
+                </div>
+            </div>
+
+            <!-- RIGHT: PROFILE -->
+            <div class="card">
+                <h3>Your Profile</h3>
+
+                <p><b>Name:</b> <span id="profileName"></span></p>
+                <p><b>Email:</b> <span id="profileEmail"></span></p>
+                <p><b>Role:</b> Tutor</p>
+
+                <div id="profileDetails"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <script type="module" src="../js/script.js"></script>
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
 </head>
 
@@ -21,23 +21,23 @@
 
             <div class="logo">
                 <img src="assets/logo.png" alt="logo">
-                <span>REOYH</span>
+                <span>EOYH</span>
             </div>
 
             <ul class="nav-links" id="nav-links">
-                <li><a href="findTutor.html">Find Tutors</a></li>
-                <li><a href="become-tutor.html">Become a Tutor</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="pages/findTutor.html">Find Tutors</a></li>
+                <li><a href="pages/become-tutor.html">Become a Tutor</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
             </ul>
 
             <div class="nav-buttons">
 
-                <a href="login.html" class="login-btn">
+                <a href="pages/login.html" class="login-btn">
                     <i class="fa-regular fa-user"></i> Login
                 </a>
 
-                <a href="signup.html" class="cta-btn">
+                <a href="pages/signup.html" class="cta-btn">
                     Get Started
                 </a>
 
@@ -74,37 +74,38 @@
                     <input type="text" placeholder="Enter city..." id="city">
                     <input type="text" placeholder="Enter area..." id="area">
 
-                    <select title="subject">
-                        <option disabled selected>Select subject </option>
-                        <option value="Math">Math</option>
-                        <option value="Physics">Physics</option>
-                        <option value="Chemistry">Chemistry</option>
-                        <option value="English">English</option>
-                        <option value="Biology">Biology</option>
+                    <select title="subject" id="subject">
+                        <option value="">Select subject </option>
+                        <option id="Math" value="Math">Math</option>
+                        <option id="Physics" value="Physics">Physics</option>
+                        <option id="Chemistry" value="Chemistry">Chemistry</option>
+                        <option id="English" value="English">English</option>
+                        <option id="Biology" value="Biology">Biology</option>
+                        <option id="Psychology" value="Psychology">Psychology</option>
                     </select>
 
-                    <select title="class">
-                        <option disabled selected>Class</option>
-                        <option value="Class 10">Class 10</option>
-                        <option value="Class 12">Class 12</option>
-                        <option value="College">College</option>
+                    <select title="class" id="class">
+                        <option value="">Class</option>
+                        <option id="Class 10" value="Class 10">Class 10</option>
+                        <option id="Class 12" value="Class 12">Class 12</option>
+                        <option id="College" value="College">College</option>
                     </select>
 
-                    <select title="Board">
-                        <option disabled selected>Board/Exam</option>
-                        <option value="CBSE">CBSE</option>
-                        <option value="ICSE">ICSE</option>
-                        <option value="JEE">JEE</option>
-                        <option value="NEET">NEET</option>
-                        <option value="CUET">CUET</option>
-                        <option value="SAT">SAT</option>
+                    <select title="Board" id="Board">
+                        <option value="">Board/Exam</option>
+                        <option id="CBSE" value="CBSE">CBSE</option>
+                        <option id="ICSE" value="ICSE">ICSE</option>
+                        <option id="JEE" value="JEE">JEE</option>
+                        <option id="NEET" value="NEET">NEET</option>
+                        <option id="CUET" value="CUET">CUET</option>
+                        <option id="SAT" value="SAT">SAT</option>
                     </select>
 
-                    <select title="Mode">
-                        <option disabled selected>Mode</option>
-                        <option value="Online">Online</option>
-                        <option value="Offline">Offline</option>
-                        <option value="Hybrid">Hybrid</option>
+                    <select title="Mode" id="Mode">
+                        <option value="">Mode</option>
+                        <option id="Online" value="Online">Online</option>
+                        <option id="Offline" value="Offline">Offline</option>
+                        <option id="Hybrid" value="Hybrid">Hybrid</option>
                     </select>
 
                 </div>
@@ -124,6 +125,8 @@
     <section class="banner">
 
         <img src="assets/banner.png" alt="">
+        <h2>Join our extensive community for daily updates!</h2>
+        <a href="https://chat.whatsapp.com/HZB2ns6NtdQHGeg4bUPtL8">Join now for free</a>
 
     </section>
 
@@ -216,7 +219,7 @@
                 <p>PhD Mathematics • IIT Delhi</p>
                 <p>Dwarka, Delhi</p>
                 <p>Starting from ₹800/hour</p>
-                <a class="tutor-profile" href="tutor_profile.html?id=1">View Profile</a>
+                <a class="tutor-profile" href="pages/tutor-profile.html?id=1">View Profile</a>
             </div>
 
             <div class="tutor-card">
@@ -225,7 +228,7 @@
                 <p>MSc Chemistry • DU</p>
                 <p>Rohini, Delhi</p>
                 <p>Starting from ₹600/hour</p>
-                <a class="tutor-profile" href="tutor_profile.html?id=2">View Profile</a>
+                <a class="tutor-profile" href="pages/tutor-profile.html?id=2">View Profile</a>
             </div>
 
             <div class="tutor-card">
@@ -234,13 +237,13 @@
                 <p>MA English • JNU</p>
                 <p>Janakpuri, Delhi</p>
                 <p>Starting from ₹500/hour</p>
-                <a class="tutor-profile" href="tutor_profile.html?id=3">View Profile</a>
+                <a class="tutor-profile" href="pages/tutor-profile.html?id=3">View Profile</a>
             </div>
 
         </div>
 
-        <button class="view-all">View All Tutors</button>
-
+        <button class="view-all" id="view-all-btn">View All Tutors</button>
+        
     </section>
 
     <!-- TRUST -->
@@ -262,6 +265,7 @@
 
         <h2>Why Choose REOYH?</h2>
 
+        
         <div class="why-grid">
 
             <div>
@@ -298,6 +302,18 @@
 
     </section>
 
+    <section class="founders">
+        <div class="heading">
+            <h1>Wanna explore the amazing team behind</h1>
+            <h4>Check them out</h4>
+        </div>
+
+        <div class="btn-founder">
+            <a href="pages/FOUNDER.html">Click Me</a>
+        </div>
+        
+    </section>
+
     <!-- POPULAR SUBJECTS -->
     <section class="subjects">
 
@@ -305,12 +321,12 @@
 
         <div class="subject-grid">
 
-            <div>Math Tutor</div>
-            <div>Physics Tutor</div>
-            <div>Chemistry Tutor</div>
-            <div>English Tutor</div>
-            <div>Biology Tutor</div>
-
+            <div>Math</div>
+            <div>Physics</div>
+            <div>Chemistry</div>
+            <div>English</div>
+            <div>Biology</div>
+            <div>Psychology</div>
         </div>
 
     </section>
@@ -324,7 +340,7 @@
             Join REOYH and connect with students looking for quality education.
         </p>
 
-        <a href="become-tutor.html"><button class="cta-btn">Become a Tutor</button></a>
+        <a href="pages/become-tutor.html"><button class="cta-btn">Become a Tutor</button></a>
 
     </section>
 
@@ -333,7 +349,7 @@
 
         <div class="footer-container">
 
-            <a href="index.html"></a>
+            <a href="pages/index.html"></a>
             <div class="footer-column">
                 <h3>REOYH</h3>
                 <p>Rapid</p>
@@ -345,13 +361,13 @@
 
             <div class="footer-column">
                 <h3>Quick Links</h3>
-                <a href="findTutor.html">
+                <a href="pages/findTutor.html">
                     <p>Find Tutors</p>
                 </a>
-                <a href="become-tutor.html">
+                <a href="pages/become-tutor.html">
                     <p>Become a Tutor</p>
                 </a>
-                <a href="contact.html">
+                <a href="pages/contact.html">
                     <p>Contact</p>
                 </a>
             </div>
@@ -387,7 +403,7 @@
 
     </footer>
 
-    <script src="script.js"></script>
+    <script type="module" src="js/script.js"></script>
 </body>
 
 </html>

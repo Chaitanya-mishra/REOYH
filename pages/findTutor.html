@@ -9,8 +9,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
 
 <body>
@@ -20,12 +20,12 @@
         <div class="container nav-container">
 
             <div class="logo">
-                <img src="assets/logo.png">
-                <span>REOYH</span>
+                <img src="../assets/logo.png">
+                <span>EOYH</span>
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -54,53 +54,7 @@
 
             <h2>Available Tutors</h2>
 
-            <div class="tutor-grid">
-
-                <!-- Tutor 1 -->
-                <div class="tutor-card">
-                    <img src="assets/placeholder.jpg">
-
-                    <h3>Dr. Priya Sharma</h3>
-                    <p>PhD Mathematics • IIT Delhi</p>
-                    <p>Dwarka, Delhi</p>
-                    <p>₹800/hour</p>
-
-                    <a href="tutor-profile.html?id=1">
-                        <button>View Profile</button>
-                    </a>
-                </div>
-
-
-                <!-- Tutor 2 -->
-                <div class="tutor-card">
-                    <img src="assets/placeholder.jpg">
-
-                    <h3>Rahul Kumar</h3>
-                    <p>MSc Chemistry • DU</p>
-                    <p>Rohini, Delhi</p>
-                    <p>₹600/hour</p>
-
-                    <a href="tutor-profile.html?id=2">
-                        <button>View Profile</button>
-                    </a>
-                </div>
-
-
-                <!-- Tutor 3 -->
-                <div class="tutor-card">
-                    <img src="assets/placeholder.jpg">
-
-                    <h3>Anjali Verma</h3>
-                    <p>MA English • JNU</p>
-                    <p>Janakpuri, Delhi</p>
-                    <p>₹500/hour</p>
-
-                    <a href="tutor-profile.html?id=3">
-                        <button>View Profile</button>
-                    </a>
-                </div>
-
-            </div>
+            <div class="tutor-grid" id="tutor-container"></div>
 
         </div>
     </section>
@@ -129,6 +83,8 @@
         </p>
 
     </footer>
+
+    <script type="module" src="../js/script.js"></script>
 
 </body>
 

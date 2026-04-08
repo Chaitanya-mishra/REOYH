@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Tutor Profile - REOYH</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+
+
+</head>
+
+<body>
+
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+
+            <div class="logo">
+                <img src="../assets/logo.png">
+                <span>EOYH</span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="findTutor.html">Find Tutors</a></li>
+                <li><a href="tutor-dashboard.html">Dashboard</a></li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="tutor-hero">
+
+        <h1>Complete Your Tutor Profile</h1>
+
+        <p>
+            Add your details so students can discover and connect with you.
+        </p>
+
+        <button class="cta-btn" id="startProfileBtn">Start Profile</button>
+
+    </section>
+
+
+    <!-- PROFILE FORM -->
+    <section id="tutor-form" class="tutor-form">
+
+        <h2>Your Profile Details</h2>
+
+        <form id="tutorForm">
+
+            <!-- BASIC INFO -->
+            <div class="form-group">
+                <h3>Basic Information</h3>
+
+                <input id="name" type="text" placeholder="Full Name" required>
+                <input id="email" type="email" placeholder="Email Address" required>
+                <input id="phone" type="text" placeholder="Phone Number" required>
+                <input id="city" type="text" placeholder="City" required>
+            </div>
+
+
+            <!-- PROFESSIONAL INFO -->
+            <div class="form-group">
+                <h3>Professional Details</h3>
+
+                <input id="subject" type="text" placeholder="Subjects You Teach" required>
+
+                <select id="mode" required>
+                    <option value="" disabled selected>Teaching Mode</option>
+                    <option value="Online">Online</option>
+                    <option value="Offline">Offline</option>
+                    <option value="Hybrid">Hybrid</option>
+                </select>
+
+                <input id="experience" type="text" placeholder="Experience (e.g. 2 years)">
+                <input id="price" type="text" placeholder="Hourly Rate (₹)">
+            </div>
+
+
+            <!-- PROFILE DETAILS -->
+            <div class="form-group">
+                <h3>About You</h3>
+
+                <textarea id="description"
+                    placeholder="Write a short bio about your teaching style, strengths, and experience"></textarea>
+            </div>
+
+
+            <!-- ACTION -->
+            <button type="submit" class="cta-btn">Save Profile</button>
+
+            <p id="tutorMsg"></p>
+
+        </form>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-container">
+
+            <div class="footer-column">
+                <h3>REOYH</h3>
+                <p>Rapid Educator On Your Home</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <a href="findTutor.html">
+                    <p>Find Tutors</p>
+                </a>
+            </div>
+
+            <div class="footer-column">
+                <h3>Support</h3>
+                <p>reoyhoutreach@gmail.com</p>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 REOYH. All rights reserved.
+        </p>
+
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+
+</body>
+
+</html>

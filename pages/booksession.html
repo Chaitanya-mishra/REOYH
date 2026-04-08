@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Session - REOYH</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/f" type="image/x-icon">
+    <style>
+        
+    </style>
+</head>
+
+<body class="book">
+
+    <div class="book-container">
+
+    <!-- BOOKING SUMMARY -->
+    <div id="booking-summary" class="booking-summary">
+        <!-- JS will fill -->
+    </div>
+
+</div>
+
+<div id="booking-box" class="booking-box">
+
+    <h2>Book Your Session</h2>
+
+    <!-- DATE -->
+    <label>Select Date:</label>
+    <input type="date" id="sessionDate">
+
+    <!-- TIME -->
+    <BR>
+    <label>Select Time:</label>
+    <div class="time-slots">
+        <button class="time-btn" data-time="10:00 AM">10:00 AM</button>
+        <button class="time-btn" data-time="12:00 PM">12:00 PM</button>
+        <button class="time-btn" data-time="2:00 PM">2:00 PM</button>
+        <button class="time-btn" data-time="4:00 PM">4:00 PM</button>
+    </div>
+
+    <!-- CONFIRM -->
+    <button id="confirm-booking" class="cta-btn">Confirm Booking</button>
+
+    <p id="bookingMsg"></p>
+
+</div>
+
+
+<script type="module" src="../js/script.js"></script>
+</body>
+
+</html>

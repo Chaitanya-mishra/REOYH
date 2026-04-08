@@ -12,8 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 
 </head>
 
@@ -25,12 +25,12 @@
         <div class="container nav-container">
 
             <div class="logo">
-                <img src="assets/logo.png">
-                <span>REOYH</span>
+                <img src="../assets/logo.png">
+                <span>EOYH</span>
             </div>
 
             <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
+                <li><a href="../index.html">Home</a></li>
                 <li><a href="findTutor.html">Find Tutors</a></li>
                 <li><a href="become-tutor.html">Become a Tutor</a></li>
             </ul>
@@ -47,16 +47,18 @@
 
             <h2>Login to REOYH</h2>
 
-            <form>
+            <form id="login-form" novalidate>
 
-                <input type="email" placeholder="Email Address" required>
+                <input id="login-email" type="email" placeholder="Email Address" required>
 
-                <input type="password" placeholder="Password" required>
+                <div class="password-field">
+                    <input id="password" type="password" placeholder="Password">
+                    <span class="togglePassword">👁️</span>
+                </div>
 
-                <a href="dashboard.html" class="cta-btn">
-                    Login
-                </a>
+                <button type="submit" class="cta-btn">Login</button>
 
+                <p id="loginMsg"></p>
             </form>
 
             <p class="signup-link">
@@ -67,6 +69,7 @@
         </div>
 
     </section>
+    <script type="module" src="../js/auth.js"></script>
 
 </body>
 

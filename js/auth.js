@@ -1,35 +1,40 @@
-//auth
+// 🔥 Firebase imports
+import { auth, db } from "./firebase.js";
+
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+import {
+  setDoc,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
 document.addEventListener("DOMContentLoaded", () => {
 
-// SIGNUP LOGIC
+  // ================= SIGNUP =================
   if (window.location.pathname.includes("signup.html")) {
     const form = document.getElementById("signup-form");
     const msg = document.getElementById("signupMsg");
 
     if (form) {
-      form.addEventListener("submit", function (e) {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const name = document.getElementById("name").value.trim();
         const email = document.getElementById("email").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const password = document.getElementById("password").value;
-        const confirmPassword =
-          document.getElementById("confirm-password").value;
+        const confirmPassword = document.getElementById("confirm-password").value;
         const role = document.getElementById("role").value;
 
         msg.style.color = "red";
-        msg.classList = "Emsg";
         msg.textContent = "";
 
-        if (
-          !name ||
-          !email ||
-          !phone ||
-          !password ||
-          !confirmPassword ||
-          role === "default"
-        ) {
+        // Validation
+        if (!name || !email || !phone || !password || !confirmPassword || role === "default") {
           msg.textContent = "Please fill all fields properly.";
           return;
         }
@@ -44,51 +49,48 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        let users = JSON.parse(localStorage.getItem("users")) || [];
+        try {
+          // Create user
+          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
 
-        const exists = users.find((user) => user.email === email);
-        if (exists) {
-          msg.textContent = "User already exists. Please login.";
-          return;
+          // Store extra data
+          await setDoc(doc(db, "users", user.uid), {
+            name,
+            email,
+            phone,
+            role,
+            createdAt: new Date()
+          });
+
+          msg.style.color = "green";
+          msg.textContent = "Signup successful! Redirecting...";
+
+          setTimeout(() => {
+            window.location.href = "login.html";
+          }, 1500);
+
+        } catch (error) {
+          msg.style.color = "red";
+          msg.textContent = error.message;
         }
-
-        const newUser = { name, email, phone, password, role };
-
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));
-
-        msg.style.color = "green";
-        msg.classList.add("Smsg");
-        msg.textContent = "Signup successful! Redirecting...";
-
-        setTimeout(() => {
-          window.location.href = "login.html";
-        }, 1500);
       });
     }
   }
 
-  // LOGIN LOGIC
+  // ================= LOGIN =================
   if (window.location.pathname.includes("login.html")) {
     const form = document.getElementById("login-form");
     const msg = document.getElementById("loginMsg");
 
-    if (form && !form.dataset.listenerAdded) {
-      form.dataset.listenerAdded = "true"; //  guard
-
-      form.addEventListener("submit", function (e) {
+    if (form) {
+      form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
-        const emailInput = document.getElementById("login-email");
-        const passwordInput = document.getElementById("password");
-
-        if (!emailInput || !passwordInput) return;
-
-        const email = emailInput.value.trim();
-        const password = passwordInput.value;
+        const email = document.getElementById("login-email").value.trim();
+        const password = document.getElementById("password").value;
 
         msg.style.color = "red";
-        msg.classList.add("Emsg");
         msg.textContent = "";
 
         if (!email || !password) {
@@ -96,37 +98,40 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
 
-        let users = JSON.parse(localStorage.getItem("users")) || [];
+        try {
+          // Login user
+          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const user = userCredential.user;
 
-        const existingUser = users.find((u) => u.email === email);
+          // Fetch user data
+          const docSnap = await getDoc(doc(db, "users", user.uid));
 
-        if (!existingUser) {
-          msg.textContent = "User not registered. Please sign up.";
-          return;
+          if (!docSnap.exists()) {
+            msg.textContent = "User data not found.";
+            return;
+          }
+
+          const userData = docSnap.data();
+
+          msg.style.color = "green";
+          msg.textContent = "Login successful! Redirecting...";
+
+          setTimeout(() => {
+            window.location.href =
+              userData.role === "Student"
+                ? "student-dashboard.html"
+                : "tutor-dashboard.html";
+          }, 1200);
+
+        } catch (error) {
+          msg.style.color = "red";
+          msg.textContent = error.message;
         }
-
-        if (existingUser.password !== password) {
-          msg.textContent = "Incorrect password.";
-          return;
-        }
-
-        localStorage.setItem("currentUser", JSON.stringify(existingUser));
-
-        msg.style.color = "green";
-        msg.classList.add("Smsg");
-        msg.textContent = "Login successful! Redirecting...";
-
-        setTimeout(() => {
-          window.location.href =
-            existingUser.role === "Student"
-              ? "student-dashboard.html"
-              : "tutor-dashboard.html";
-        }, 1200);
       });
     }
   }
 
-    //show password
+  // ================= PASSWORD TOGGLE =================
   const toggles = document.querySelectorAll(".togglePassword");
 
   toggles.forEach((toggle) => {
@@ -143,5 +148,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-
 });
+

@@ -1,3 +1,15 @@
+import { auth } from "./firebase.js";
+import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+onAuthStateChanged(auth, (user) => {
+  if (!user) {
+    //  Not logged in → send to login
+    window.location.href = "login.html";
+  }
+});
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   // NAVBAR TOGGLE
   const menuToggle = document.getElementById("menu-toggle");
@@ -13,22 +25,26 @@ document.addEventListener("DOMContentLoaded", () => {
 const navAuth = document.getElementById("nav-auth");
 const user = JSON.parse(localStorage.getItem("currentUser"));
 
+
+const isInPages = window.location.pathname.includes("/pages/");
+const base = isInPages ? "" : "pages/";
+
 if (navAuth) {
   if (user) {
     navAuth.innerHTML = `
-      <a href="student-dashboard.html" class="login-btn">Profile</a>
+      <a href="pages/student-dashboard.html" class="login-btn">Profile</a>
       <button id="logoutBtn" class="cta-btn">Logout</button>
     `;
 
     document.getElementById("logoutBtn").addEventListener("click", () => {
       localStorage.removeItem("currentUser");
-      window.location.href = "login.html";
+      window.location.href = "pages/login.html";
     });
 
   } else {
     navAuth.innerHTML = `
-      <a href="login.html" class="login-btn">Login</a>
-      <a href="signup.html" class="cta-btn">Get Started</a>
+      <a href="pages/login.html" class="login-btn">Login</a>
+      <a href="pages/signup.html" class="cta-btn">Get Started</a>
     `;
   }
 }

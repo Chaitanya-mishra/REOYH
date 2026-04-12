@@ -165,6 +165,12 @@ body {
   color: #f97316;
 }
 
+#nav-auth {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
 /* HERO */
 
 .hero {
@@ -669,7 +675,7 @@ body {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  /* 🔥 important */
+  /*important */
   flex-wrap: wrap;
   gap: 30px;
   max-width: 1200px;
@@ -1220,6 +1226,16 @@ textarea::placeholder {
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
+}
+
+.forgot-password{
+  margin: 5px;
+
+  a{
+  text-decoration: none;
+  color: #f97316;
+  }
+
 }
 
 .signup-link {
@@ -1917,4 +1933,18 @@ textarea::placeholder {
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
+}
+
+
+.card {
+  background: #ffc194;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: 0.7s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
 }

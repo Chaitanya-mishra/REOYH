@@ -1,14 +1,18 @@
-import { auth } from "./firebase.js";
-import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+//  AUTH PROTECTION (TOP OF FILE)
+import { auth, db } from "./firebase.js";
 
-onAuthStateChanged(auth, (user) => {
-  if (!user) {
-    //  Not logged in → send to login
-    window.location.href = "login.html";
-  }
-});
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-
+import {
+  setDoc,
+  doc,
+  getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // NAVBAR TOGGLE
@@ -22,31 +26,36 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 //login - signup and logout btn
+// NAVBAR AUTH STATE (RUNS ON ALL PAGES)
+
+
 const navAuth = document.getElementById("nav-auth");
-const user = JSON.parse(localStorage.getItem("currentUser"));
-
-
-const isInPages = window.location.pathname.includes("/pages/");
-const base = isInPages ? "" : "pages/";
 
 if (navAuth) {
-  if (user) {
-    navAuth.innerHTML = `
-      <a href="pages/student-dashboard.html" class="login-btn">Profile</a>
-      <button id="logoutBtn" class="cta-btn">Logout</button>
-    `;
+  onAuthStateChanged(auth, (user) => {
 
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("currentUser");
-      window.location.href = "pages/login.html";
-    });
+    if (user) {
+      navAuth.innerHTML = `
+        <a href="pages/student-dashboard.html" class="login-btn">Profile</a>
+        <button id="logoutBtnNav" class="cta-btn">Logout</button>
+      `;
 
-  } else {
-    navAuth.innerHTML = `
-      <a href="pages/login.html" class="login-btn">Login</a>
-      <a href="pages/signup.html" class="cta-btn">Get Started</a>
-    `;
-  }
+      const logoutBtn = document.getElementById("logoutBtnNav");
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", async () => {
+          await signOut(auth);
+          window.location.href = "pages/login.html";
+        });
+      }
+
+    } else {
+      navAuth.innerHTML = `
+        <a href="pages/login.html" class="login-btn">Login</a>
+        <a href="pages/signup.html" class="cta-btn">Register</a>
+      `;
+    }
+
+  });
 }
 
   // HOME PAGE LOGIC
@@ -337,78 +346,104 @@ if (navAuth) {
     });
   }
 
-  //DASHBOARD (STUDENT) LOGIC
-  // STUDENT DASHBOARD LOGIC
-  if (window.location.pathname.includes("student-dashboard.html")) {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
 
-    if (!user) {
-      window.location.href = "login.html";
-    }
+  // ================= DASHBOARD =================
+if (
+  window.location.pathname.includes("student-dashboard.html") ||
+  window.location.pathname.includes("tutor-dashboard.html")
+) {
+  import("https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js").then(({ onAuthStateChanged }) => {
 
-    // Fill user data
-    document.getElementById("username").textContent = user.name;
-    document.getElementById("profileName").textContent = user.name;
-    document.getElementById("profileEmail").textContent = user.email;
+    onAuthStateChanged(auth, async (user) => {
+      if (!user) {
+        window.location.href = "login.html";
+        return;
+      }
 
-    // Booking display
-    const booking = JSON.parse(localStorage.getItem("bookingData"));
-    const bookingList = document.getElementById("bookingList");
+      const docSnap = await getDoc(doc(db, "users", user.uid));
 
-    if (booking) {
-      bookingList.innerHTML = `
-      <div class="booking-item">
-        <p><strong>${booking.name}</strong></p>
-        <p class="muted">${booking.subject} • ₹${booking.price}/hr</p>
-      </div>
-    `;
-    }
+      if (!docSnap.exists()) {
+        console.log("No user data found");
+        return;
+      }
 
-    //find cta
-    const findBtn = document.getElementById("findTutorBtn");
+      const userData = docSnap.data();
 
-    if (findBtn) {
-      findBtn.addEventListener("click", () => {
-        localStorage.removeItem("searchData"); // clear filters
-      });
-    }
-    // Logout
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("currentUser");
-      window.location.href = "login.html";
+      console.log("User Data:", userData); // DEBUG
+
+      // Inject data into UI
+      document.getElementById("username").textContent = userData.name;
+      document.getElementById("profileName").textContent = userData.name;
+      document.getElementById("profileEmail").textContent = userData.email;
     });
-  }
+
+  });
+}
+
+  //DASHBOARD (STUDENT) LOGIC
+
+  // STUDENT DASHBOARD LOGIC
+ if (window.location.pathname.includes("student-dashboard.html")) {
+
+onAuthStateChanged(auth, async (user) => {
+  const docSnap = await getDoc(doc(db, "users", user.uid));
+});
+  if (!docSnap.exists()) return;
+
+  const userData = docSnap.data();
+
+  const usernameEl = document.getElementById("username");
+  const profileNameEl = document.getElementById("profileName");
+  const profileEmailEl = document.getElementById("profileEmail");
+
+  if (usernameEl) usernameEl.textContent = userData.name;
+  if (profileNameEl) profileNameEl.textContent = userData.name;
+  if (profileEmailEl) profileEmailEl.textContent = userData.email;
+}
+
 
   //tutor dashboard
   // TUTOR DASHBOARD LOGIC
-  if (window.location.pathname.includes("tutor-dashboard.html")) {
-    const user = JSON.parse(localStorage.getItem("currentUser"));
+
+if (window.location.pathname.includes("tutor-dashboard.html")) {
+
+  onAuthStateChanged(auth, async (user) => {
 
     if (!user) {
       window.location.href = "login.html";
+      return;
     }
 
-    document.getElementById("username").textContent = user.name;
+    const docSnap = await getDoc(doc(db, "users", user.uid));
 
-    // profile basic
-    document.getElementById("profileName").textContent = user.name;
-    document.getElementById("profileEmail").textContent = user.email;
+    if (!docSnap.exists()) {
+      console.log("No user data found");
+      return;
+    }
 
-    // get tutor profile from localstorage
+    const userData = docSnap.data();
+
+    document.getElementById("username").textContent = userData.name;
+    document.getElementById("profileName").textContent = userData.name;
+    document.getElementById("profileEmail").textContent = userData.email;
+
+    // KEEP YOUR EXISTING LOGIC
     const tutors = JSON.parse(localStorage.getItem("tutors")) || [];
-    const tutorProfile = tutors.find((t) => t.email === user.email);
+    const tutorProfile = tutors.find((t) => t.email === userData.email);
 
     if (tutorProfile) {
-      document.getElementById("profileDetails").innerHTML =
-        `       <p>subject: ${tutorProfile.subject}</p>       <p>city: ${tutorProfile.city}</p>       <p>mode: ${tutorProfile.mode}</p>       <p>experience: ${tutorProfile.experience || "n/a"}</p>       <p>price: ₹${tutorProfile.price || 500}/hour</p>
-    `;
+      document.getElementById("profileDetails").innerHTML = `
+        <p>subject: ${tutorProfile.subject}</p>
+        <p>city: ${tutorProfile.city}</p>
+        <p>mode: ${tutorProfile.mode}</p>
+        <p>experience: ${tutorProfile.experience || "n/a"}</p>
+        <p>price: ₹${tutorProfile.price || 500}/hour</p>
+      `;
     } else {
       document.getElementById("profileDetails").innerHTML =
-        `       <p style="color:red;">profile not completed yet</p>
-    `;
+        `<p style="color:red;">profile not completed yet</p>`;
     }
 
-    // booking requests (keep your existing logic)
     const requestList = document.getElementById("requestList");
     const bookings = JSON.parse(localStorage.getItem("bookings")) || [];
 
@@ -420,14 +455,14 @@ if (navAuth) {
         div.className = "request-item";
 
         div.innerHTML = `
-    <p><strong>${b.name}</strong></p>
-    <p class="muted">${b.subject} • ₹${b.price}/hr</p>
+          <p><strong>${b.name}</strong></p>
+          <p class="muted">${b.subject} • ₹${b.price}/hr</p>
 
-    <div class="request-actions">
-      <button class="accept-btn">accept</button>
-      <button class="reject-btn">reject</button>
-    </div>
-  `;
+          <div class="request-actions">
+            <button class="accept-btn">accept</button>
+            <button class="reject-btn">reject</button>
+          </div>
+        `;
 
         div.querySelector(".accept-btn").addEventListener("click", () => {
           alert("session accepted");
@@ -443,15 +478,16 @@ if (navAuth) {
       });
     }
 
-    document.getElementById("logoutBtn").addEventListener("click", () => {
-      localStorage.removeItem("currentUser");
+    document.getElementById("logoutBtn").addEventListener("click", async () => {
+      await signOut(auth);
       window.location.href = "login.html";
     });
-  }
 
-  // =============================
+  });
+
+}
+
   // BECOME TUTOR / PROFILE LOGIC
-  // =============================
 
   if (window.location.pathname.includes("become-tutor.html")) {
     const form = document.getElementById("tutorForm");

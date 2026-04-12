@@ -3,17 +3,18 @@ import { auth, db } from "./firebase.js";
 
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 import {
   setDoc,
   doc,
-  getDoc
+  getDoc,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-document.addEventListener("DOMContentLoaded", () => {
+import { sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
+document.addEventListener("DOMContentLoaded", () => {
   // ================= SIGNUP =================
   if (window.location.pathname.includes("signup.html")) {
     const form = document.getElementById("signup-form");
@@ -27,14 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
         const email = document.getElementById("email").value.trim();
         const phone = document.getElementById("phone").value.trim();
         const password = document.getElementById("password").value;
-        const confirmPassword = document.getElementById("confirm-password").value;
+        const confirmPassword =
+          document.getElementById("confirm-password").value;
         const role = document.getElementById("role").value;
 
         msg.style.color = "red";
         msg.textContent = "";
 
         // Validation
-        if (!name || !email || !phone || !password || !confirmPassword || role === "default") {
+        if (
+          !name ||
+          !email ||
+          !phone ||
+          !password ||
+          !confirmPassword ||
+          role === "default"
+        ) {
           msg.textContent = "Please fill all fields properly.";
           return;
         }
@@ -51,7 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
           // Create user
-          const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+          const userCredential = await createUserWithEmailAndPassword(
+            auth,
+            email,
+            password,
+          );
           const user = userCredential.user;
 
           // Store extra data
@@ -60,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
             email,
             phone,
             role,
-            createdAt: new Date()
+            createdAt: new Date(),
           });
 
           msg.style.color = "green";
@@ -69,7 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => {
             window.location.href = "login.html";
           }, 1500);
-
         } catch (error) {
           msg.style.color = "red";
           msg.textContent = error.message;
@@ -91,6 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const password = document.getElementById("password").value;
 
         msg.style.color = "red";
+        msg.classList.add("Emsg");
         msg.textContent = "";
 
         if (!email || !password) {
@@ -100,7 +113,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         try {
           // Login user
-          const userCredential = await signInWithEmailAndPassword(auth, email, password);
+          const userCredential = await signInWithEmailAndPassword(
+            auth,
+            email,
+            password,
+          );
           const user = userCredential.user;
 
           // Fetch user data
@@ -114,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
           const userData = docSnap.data();
 
           msg.style.color = "green";
+          msg.classList.add("Smsg");
           msg.textContent = "Login successful! Redirecting...";
 
           setTimeout(() => {
@@ -121,10 +139,46 @@ document.addEventListener("DOMContentLoaded", () => {
               userData.role === "Student"
                 ? "student-dashboard.html"
                 : "tutor-dashboard.html";
-          }, 1200);
-
+          }, 1500);
         } catch (error) {
           msg.style.color = "red";
+
+          if (error.code === "auth/invalid-credential") {
+            msg.textContent = "Invalid email or password.";
+          } else if (error.code === "auth/user-not-found") {
+            msg.textContent = "No account found with this email.";
+          } else if (error.code === "auth/wrong-password") {
+            msg.textContent = "Incorrect password.";
+          } else {
+            msg.textContent = "Something went wrong. Please try again.";
+          }
+        }
+      });
+    }
+
+    const forgotBtn = document.getElementById("forgotPassword");
+
+    if (forgotBtn) {
+      forgotBtn.addEventListener("click", async () => {
+        const email = document.getElementById("login-email").value.trim();
+
+        if (!email) {
+          msg.style.color = "red";
+          msg.classList.add("Emsg");
+          msg.textContent = "Enter your email first.";
+          return;
+        }
+
+        try {
+          await sendPasswordResetEmail(auth, email);
+
+          msg.style.color = "green";
+          msg.classList.add("Smsg");
+          msg.textContent =
+            "Password reset link sent. Check your spam folder if not in inbox.";
+        } catch (error) {
+          msg.style.color = "red";
+          msg.classList.add("Emsg");
           msg.textContent = error.message;
         }
       });
@@ -147,6 +201,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   });
-
 });
-

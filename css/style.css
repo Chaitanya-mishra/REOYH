@@ -749,6 +749,101 @@ body {
   opacity: 0.9;
 }
 
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-bar input, .search-bar select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* CARD WRAPPER */
+
+#tutor-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tutor-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px;
+  margin: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  width: 260px;
+}
+
+.tutor-card:hover {
+  transform: translateY(-5px);
+}
+
+/* INNER LAYOUT */
+.tutor-card-inner {
+  display: flex;
+  gap: 12px;
+}
+
+/* IMAGE */
+.tutor-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+/* INFO */
+.tutor-info h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.subject {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+/* META */
+.meta {
+  font-size: 12px;
+  color: #888;
+  display: flex;
+  gap: 8px;
+}
+
+/* BOTTOM */
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.price {
+  font-weight: bold;
+  color: #ff6b00;
+}
+
+/* BUTTON */
+.view-btn {
+  background: #ff6b00;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.view-btn:hover {
+  background: #e85d00;
+}
+
 /*filter*/
 .filters {
   background: white;
@@ -1947,4 +2042,15 @@ textarea::placeholder {
 .card:hover {
   transform: translateY(-8px);
   box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+
+/* .dashboard profile picture */
+.profile-pic{
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  cursor: pointer;
 }

@@ -140,19 +140,30 @@ document.addEventListener("DOMContentLoaded", () => {
                 ? "student-dashboard.html"
                 : "tutor-dashboard.html";
           }, 1500);
-        } catch (error) {
-          msg.style.color = "red";
-
-          if (error.code === "auth/invalid-credential") {
-            msg.textContent = "Invalid email or password.";
-          } else if (error.code === "auth/user-not-found") {
-            msg.textContent = "No account found with this email.";
-          } else if (error.code === "auth/wrong-password") {
-            msg.textContent = "Incorrect password.";
-          } else {
-            msg.textContent = "Something went wrong. Please try again.";
-          }
         }
+        
+        catch (error) {
+  const msg = document.getElementById("loginMsg");
+
+  console.log("Error code:", error.code);
+
+  if (!msg) return;
+
+  if (error.code === "auth/user-not-found") {
+    msg.textContent = "No user found with this email.";
+  } 
+  else if (error.code === "auth/wrong-password") {
+    msg.textContent = "Incorrect password.";
+  } 
+  else if (error.code === "auth/invalid-email") {
+    msg.textContent = "Invalid email format.";
+  } 
+  else {
+    msg.textContent = "Login failed. Try again.";
+  }
+
+  msg.style.color = "red";
+}
       });
     }
 

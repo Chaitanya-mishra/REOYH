@@ -2,56 +2,118 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - REOYH</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Dashboard - REOYH</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@400;500&display=swap"
+		rel="stylesheet">
+	<link rel="stylesheet" href="../css/style.css">
+	<link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 
 </head>
 
 <body>
 
-    <section class="dashboard">
+	<section class="dashboard">
 
-        <!-- HEADER -->
-        <div class="dashboard-header">
-            <h2>Welcome, <span id="username"></span> 👋</h2>
+		<!-- HEADER -->
+		<div class="dashboard-header">
+			<div>
+				<img src="../assets/llama.png" class="llama-mini" />
+				<h2>Welcome, <span id="username"></span> 👋</h2>
+				<p class="subtext">Manage your learning sessions</p>
+			</div>
 
-            <div class="actions">
-                <a href="findTutor.html" class="cta-btn" id="findTutorBtn">Find Tutors</a>
-                <button id="logoutBtn" class="logout-btn">Logout</button>
-            </div>
-        </div>
+			<div class="actions">
+				<a href="findTutor.html" class="cta-btn" id="findTutorBtn">Find Tutors</a>
+				<button id="logoutBtn" class="logout-btn">Logout</button>
+			</div>
+		</div>
 
-        <!-- GRID -->
-        <div class="dashboard-grid">
+		<!-- GRID -->
+		<div class="dashboard-grid">
 
-            <!-- LEFT -->
-            <div class="card">
-                <h3>Your Sessions</h3>
-                <div id="bookingList">
-                    <p class="muted">No sessions booked yet.</p>
-                </div>
-            </div>
+			<!-- LEFT: SESSIONS -->
+			<div class="card">
+				<div class="card-header">
+					<h3>Your Sessions</h3>
+				</div>
 
-            <!-- RIGHT -->
-            <div class="card">
-                <h3>Your Profile</h3>
+				<div class="card-body">
+					<div id="bookingList">
+						<p class="muted">No sessions booked yet.</p>
+					</div>
+				</div>
+			</div>
 
-                <p><strong>Name:</strong> <span id="profileName"></span></p>
-                <p><strong>Email:</strong> <span id="profileEmail"></span></p>
-                <p><strong>Role:</strong> Student</p>
-            </div>
+			<!-- RIGHT: PROFILE -->
+			<div class="card">
+				<div class="card-header">
+					<h3>Your Profile</h3>
+				</div>
 
-        </div>
+				<div class="card-body profile-box">
 
-    </section>
+					<!-- Llama -->
+					<img src="../assets/llama.png" class="profile-llama" />
 
-    <script type="module" src="../js/dashboard.js"></script>
+					<!-- KEEP THIS ID -->
+					<h4 id="profileName">User</h4>
+
+					<!-- OPTIONAL dynamic role -->
+					<p class="muted" id="profileRole">Student</p>
+
+					<div class="profile-info">
+						<p><strong>Email:</strong><br>
+							<!-- KEEP THIS ID -->
+							<span id="profileEmail"></span>
+						</p>
+					</div>
+
+					<div class="llama-tip">
+						🦙 Stay consistent — small steps daily!
+					</div>
+
+				</div>
+			</div>
+
+		</div>
+
+		<!-- FEEDBACK SECTION -->
+		<section id="feedbackSection" class="feedback-section" style="display: none;">
+
+			<div class="feedback-card">
+
+				<h2>Give Feedback</h2>
+
+				<label>Rating</label>
+				<select id="rating" class="feedback-input">
+					<option value="">Select Rating</option>
+					<option value="5">⭐⭐⭐⭐⭐</option>
+					<option value="4">⭐⭐⭐⭐</option>
+					<option value="3">⭐⭐⭐</option>
+					<option value="2">⭐⭐</option>
+					<option value="1">⭐</option>
+				</select>
+
+				<label>Your Feedback</label>
+				<textarea id="feedbackText" class="feedback-input"
+					placeholder="Write your experience with this tutor..."></textarea>
+
+				<button id="submitFeedback" class="feedback-submit-btn">
+					Submit Feedback
+				</button>
+
+				<p id="feedbackMsg"></p>
+
+			</div>
+
+		</section>
+
+	</section>
+
+	<script type="module" src="../js/dashboard.js"></script>
 
 </body>
 

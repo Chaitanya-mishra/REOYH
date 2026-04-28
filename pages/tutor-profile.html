@@ -40,66 +40,47 @@
 
     <!-- PROFILE -->
 
-    <section class="tutor-profile">
+   <!-- PROFILE -->
+<section class="tutor-profile">
+  <div class="container profile-container">
 
-        <div class="container profile-container">
+    <div class="profile-header">
+      <img src="../assets/placeholder.jpg" class="profile-img" id="tutor-image">
 
-            <img src="../assets/placeholder.jpg" class="profile-img" id="tutor-image">
+      <div class="profile-info">
+        <h1 id="tutor-name">Tutor Name</h1>
+        <p id="tutor-degree">Tutor</p>
+        <p id="tutor-location">email@example.com</p>
 
-            <div class="profile-info">
+        <button id="edit-profile-btn">Edit Profile</button>
+      </div>
+    </div>
 
-                <h1 class="tutor-name" id="tutor-name">Tutor Name</h1>
+  </div>
+</section>
 
-                <p class="rating" id="tutor-rating"></p>
-
-                <p class="degree" id="tutor-degree">Degree</p>
-
-                <p class="location" id="tutor-location">Location</p>
-
-                <p class="price" id="tutor-price">Price</p>
-
-                <button id="book-btn">Book Session</button>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ABOUT -->
-
-    <section class="about-tutor">
-        <div class="container">
-
-            <h2>About the Tutor</h2>
-
-            <p class="about-text" id="tutor-about">
-                Tutor description will load here.
-            </p>
-
-        </div>
-    </section>
+<div id="edit-form" style="display:none;">
+  <input id="edit-name" placeholder="Name">
+  <textarea id="edit-bio" placeholder="Bio"></textarea>
+  <button id="save-profile">Save</button>
+</div>
 
 
-    <!-- SUBJECTS -->
+<!-- ABOUT -->
+<section class="about-tutor">
+  <div class="container about-container">
+    <h2>About the Tutor</h2>
+    <p id="tutor-about">No bio available</p>
+  </div>
+</section>
 
-    <section class="subjects-taught">
-        <div class="subjects-container"></div>
-    </section>
-
-
-    <!-- REVIEWS -->
-
-    <section class="reviews">
-        <div class="container">
-
-            <h2>Student Reviews</h2>
-
-            <div class="reviews-container"></div>
-
-        </div>
-    </section>
+<!-- LISTINGS (MOST IMPORTANT) -->
+<section class="tutor-listings">
+  <div class="container listings-container">
+    <h2>Available Classes</h2>
+    <div id="tutor-listings" class="listing-grid"></div>
+  </div>
+</section>
 
 
     <!-- FOOTER -->

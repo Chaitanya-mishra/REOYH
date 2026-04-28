@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutor Dashboard - REOYH</title>
 
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="../css/style.css">
     <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
 </head>
@@ -16,7 +20,10 @@
 
         <!-- HEADER -->
         <div class="dashboard-header">
-            <h2>Welcome, <span id="username"></span><i class="fa-sharp-duotone fa-light fa-chalkboard-user"></i></h2>
+            <div>
+                <h2>Welcome, <span id="username"></span> 👋</h2>
+                <p class="subtext">Manage your sessions and profile</p>
+            </div>
 
             <div class="actions">
                 <button id="logoutBtn" class="logout-btn">Logout</button>
@@ -28,10 +35,14 @@
 
             <!-- LEFT: REQUESTS -->
             <div class="card">
-                <h3>Booking Requests</h3>
+                <div class="card-header">
+                    <h3>Your Sessions</h3>
+                </div>
 
-                <div id="requestList">
-                    <p class="muted">No requests yet.</p>
+                <div class="card-body">
+                    <div id="bookingList">
+                        <p class="muted">No sessions booked yet.</p>
+                    </div>
                 </div>
             </div>
 
@@ -47,6 +58,56 @@
             </div>
 
         </div>
+        <br>
+        <h2>Add New Listing</h2>
+
+        <form id="listingForm" class="listing-form">
+            <div class="form-row">
+                <input type="text" id="title" placeholder="Title (e.g. Class 10 Maths)" required />
+                <input type="text" id="subject" placeholder="Subject" required />
+            </div>
+
+            <div class="listing-filters">
+                <select title="Class" id="classLevel">
+                    <option value="">Class</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+
+                <select title="Board" id="board">
+                    <option value="">Board/Exam</option>
+                    <option value="CBSE">CBSE</option>
+                    <option value="ICSE">ICSE</option>
+                    <option value="JEE">JEE</option>
+                    <option value="NEET">NEET</option>
+                    <option value="CUET">CUET</option>
+                    <option value="SAT">SAT</option>
+                </select>
+
+                <select id="mode">
+                    <option value="">Select Mode</option>
+                    <option value="online">Online</option>
+                    <option value="offline">Offline</option>
+                    <option value="hybrid">Hybrid</option>
+                </select>
+
+            </div>
+
+
+            <div class="form-row">
+                <input type="number" id="price" placeholder="Price per hour" required />
+            </div>
+
+            <textarea id="description" placeholder="Description"></textarea>
+
+            <button type="submit">Add Listing</button>
+        </form>
+
 
     </section>
 
